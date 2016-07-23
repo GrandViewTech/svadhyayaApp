@@ -19,7 +19,22 @@ public class CustomIcons
 			{
 				try
 					{
-						Resource icon = new ClassPathResource("icons" + File.separator + "background.jpg");
+						Resource icon = new ClassPathResource("icons" + File.separator + "background" + File.separator + "background1.jpg");
+						ImageIcon imageIcon = new ImageIcon(icon.getURL());
+						return imageIcon;
+					} catch (Exception exception)
+					{
+						new ErrorFrame(exception.getLocalizedMessage());
+						logger.error(exception.getLocalizedMessage(), exception);
+					}
+				return null;
+			}
+
+		public static ImageIcon getMainFrameBackBroundIcon1280X800()
+			{
+				try
+					{
+						Resource icon = new ClassPathResource("icons" + File.separator + "background" + File.separator + "background2.jpg");
 						ImageIcon imageIcon = new ImageIcon(icon.getURL());
 						return imageIcon;
 					} catch (Exception exception)

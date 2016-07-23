@@ -7,7 +7,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -48,13 +47,15 @@ public class MainFrame extends JFrame
 				setExtendedState(JFrame.MAXIMIZED_BOTH);
 				setMinimumSize(SystemDimensions.getMinimumResolutionSupported());
 				setResizable(true);
-				ImageIcon imageIcon = CustomIcons.getMainFrameBackBroundIcon();
-				if (imageIcon != null)
+				backgroundImage.setBounds(0, 0, preferredSize.width, preferredSize.height);
+				if (preferredSize.width == 1280 && preferredSize.height <= 800)
 					{
-						backgroundImage.setBounds(0, 0, preferredSize.width, preferredSize.height);
-						backgroundImage.setIcon(imageIcon);
-						setContentPane(backgroundImage);
+						backgroundImage.setIcon(CustomIcons.getMainFrameBackBroundIcon1280X800());
+					} else
+					{
+						backgroundImage.setIcon(CustomIcons.getMainFrameBackBroundIcon());
 					}
+				setContentPane(backgroundImage);
 				// Defining Padding
 				gridBagConstraints.insets = new Insets(5, 5, 5, 5);
 				//
